@@ -1,41 +1,32 @@
 #include <kipr/botball.h>
 
-     int main()
+int main()
 {
-    wait_for_light (3) ; 
-    shut_down_in (119);
           int right = 0;
           int left = 3;
-          int claw = 1;
-          int arm  = 2;
-   set_servo_position (claw, 777) ;
-   //drive Foward
-    motor (right, 60) ;
-    motor (left, 60) ;
-    msleep (3000) ;
-    ao () ;
-   //turn to power lines
-         motor(right, -20);
-         motor(left, 30);
-         msleep(2000);
-         ao();
+          int claw = 2;
+    	  int  arm  = 3;
     
-         
+       // raise power lines w/ arm and turn
+      enable_servos();
    
-   // raise power lines w/ arm and turn
-      set_servo_position (arm,777);
+      set_servo_position (claw,565);
+      msleep(2500);
+    set_servo_position (arm,924);
+    msleep(2500);
+    while (analog(0)<100)
       motor (left, 40);
-      motor (right, 60);
-      msleep(1000);
-     set_servo_position (arm, 520) ;
-     msleep (1500) ;
-     set_servo_position (arm, 1000) ;
-   msleep (1500) ;
-         
-   ao ();
+      motor (right, 40);
+      msleep(3000);
+     set_servo_position (arm, 510) ;
+     msleep (2500) ;
+     motor (left,-20);
+     motor (right,30);
+     msleep(2000);
+    motor (left,30);
+     motor (right,-20);
+     msleep(2000);
+     set_servo_position (arm, 924) ;
+     msleep(2000) ;
     return 0;
 }
-
-         
-   
-
