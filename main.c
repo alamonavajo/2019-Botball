@@ -2,31 +2,41 @@
 
 int main()
 {
-          int right = 0;
-          int left = 3;
-          int claw = 2;
-    	  int  arm  = 3;
+    motor(0,60);
+    motor(3,60);
+    //drive foward (little)
     
-       // raise power lines w/ arm and turn
-      enable_servos();
-   
-      set_servo_position (claw,565);
-      msleep(2500);
-    set_servo_position (arm,924);
-    msleep(2500);
-    while (analog(0)<100)
-      motor (left, 40);
-      motor (right, 40);
-      msleep(3000);
-     set_servo_position (arm, 510) ;
-     msleep (2500) ;
-     motor (left,-20);
-     motor (right,30);
-     msleep(2000);
-    motor (left,30);
-     motor (right,-20);
-     msleep(2000);
-     set_servo_position (arm, 924) ;
-     msleep(2000) ;
+    msleep(3000);
+    
+    motor(0,15);
+    motor(3,78);
+    
+    msleep(2000);
+    
+    while(analog(0)>100)
+    {
+    motor(0,75);
+    motor(3,75);
+    }
+    
+    motor(0,-50);
+    motor(3,5);
+    
+    msleep(1000);
+    
+    motor(0,-80);
+    motor(3,-80);
+    
+    msleep(3000);
+    
+    motor(0,10);
+    motor(3,-30);
+    
+    msleep(1000);
+    
+    motor(0,-100);
+    motor(3,-100);
+    
+    msleep(3000);
     return 0;
 }
