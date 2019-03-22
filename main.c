@@ -2,6 +2,8 @@
 
 int main()
 {
+    wait_for_light (3) ; 
+    shut_down_in (119);
     motor(0,60);
     motor(3,60);
     //drive foward (little)
